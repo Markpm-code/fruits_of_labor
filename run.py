@@ -35,6 +35,15 @@ def get_available_stocks_data():
     print("Example: 5,10,15,20,25,30,35,40,45\n")
 
     stocks_data = input("Enter your stocks data here:")
-    print(f"The stocks data provided is {stocks_data}")
+    available_stocks_data = stocks_data.split(",")
+    try:
+        if len(available_stocks_data) != 9:
+            raise ValueError(
+                f"9 numbers required, you input {len(available_stocks_data)} "
+            )
+    except ValueError:
+        print("Invalid data: please try again.\n")     
+    
+    print(f"The stocks data provided is {available_stocks_data}")
 
 get_available_stocks_data()
