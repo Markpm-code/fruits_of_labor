@@ -26,8 +26,15 @@ while True:
         continue 
 
 
-orders = SHEET.worksheet("orders")
+def get_available_stocks_data():
+    """
+    Get available stock data figures input from the user
+    """
+    print("Please enter available stocks ready for orders.\n")
+    print("Data should be 9 numbers,separated by commas.\n")
+    print("Example: 5,10,15,20,25,30,35,40,45\n")
 
-data = orders.get_all_values()
+    stocks_data = input("Enter your stocks data here:")
+    print(f"The stocks data provided is {stocks_data}")
 
-print(data)
+get_available_stocks_data()
