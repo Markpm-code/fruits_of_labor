@@ -47,14 +47,13 @@ def validate_data(values):
     or if there are not exactly 9 values.
     """   
     try:
+        [int(value) for value in values]
         if len(values) != 9:
             raise ValueError(
                 f"9 numbers required, you input {len(values)}"
             )
     except ValueError as e:
         print(f"Invalid data: {e}, please try again.")     
-
-    print(f"The stocks data provided is {values}")          
-
+         
 
 get_available_stocks_data()
