@@ -30,14 +30,18 @@ def get_available_stocks_data():
     """
     Get available stock data figures input from the user
     """
-    print("Please enter available stocks ready for orders.\n")
-    print("Data should be 9 numbers,separated by commas.\n")
-    print("Example: 5,10,15,20,25,30,35,40,45\n")
+    while True:
+        print("Please enter available stocks ready for orders.\n")
+        print("Data should be 9 numbers,separated by commas.\n")
+        print("Example: 5,10,15,20,25,30,35,40,45\n")
 
-    stocks_data = input("Enter your stocks data here: ")
+        stocks_data = input("Enter your stocks data here: ")
 
-    available_stocks_data = stocks_data.split(",")
-    validate_data(available_stocks_data)
+        available_stocks_data = stocks_data.split(",")
+
+        if validate_data(available_stocks_data):
+            print("Data is valid.")
+            break
 
 
 def validate_data(values):
@@ -53,7 +57,10 @@ def validate_data(values):
                 f"9 numbers required, you input {len(values)}"
             )
     except ValueError as e:
-        print(f"Invalid data: {e}, please try again.")     
+        print(f"Invalid data: {e}, please try again.") 
+        return False  
+
+    return True      
          
 
-get_available_stocks_data()
+data = get_available_stocks_data()
