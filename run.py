@@ -34,16 +34,27 @@ def get_available_stocks_data():
     print("Data should be 9 numbers,separated by commas.\n")
     print("Example: 5,10,15,20,25,30,35,40,45\n")
 
-    stocks_data = input("Enter your stocks data here:")
+    stocks_data = input("Enter your stocks data here: ")
+
     available_stocks_data = stocks_data.split(",")
+    validate_data(available_stocks_data)
+
+
+def validate_data(values):
+    """
+    Inside the try, converts all string into integers,
+    Raises ValueError if strings cannot be converted into int,
+    or if there are not exactly 9 values.
+    """   
     try:
-        if len(available_stocks_data) != 9:
+        if len(values) != 9:
             raise ValueError(
-                f"9 numbers required, you input {len(available_stocks_data)} "
+                f"9 numbers required, you input {len(values)}"
             )
-    except ValueError:
-        print("Invalid data: please try again.\n")     
-    
-    print(f"The stocks data provided is {available_stocks_data}")
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.")     
+
+    print(f"The stocks data provided is {values}")          
+
 
 get_available_stocks_data()
