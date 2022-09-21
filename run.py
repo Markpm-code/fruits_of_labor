@@ -95,7 +95,7 @@ def get_orders_data():
         print("Data should be 9 numbers,separated by commas.\n")
         print("Example: 5,10,15,20,25,30,35,40,45\n")
 
-        orders_data = input("Enter your orders data here: ")
+        orders_data = input("Enter your new orders data here: ")
         new_orders_data = orders_data.split(",")
 
         if validate_orders_data(new_orders_data):
@@ -121,7 +121,18 @@ def validate_orders_data(values):
         print(f"Invalid data: {e}, please try again.")      
         return False  
 
-    return True     
+    return True   
+
+
+def update_orders_worksheet(data):
+    """
+    Update orders worksheet, 
+    add new row with list data entered by the user.
+    """
+    print("Updating orders worksheet...\n")
+    orders_worksheet = SHEET.worksheet("orders")
+    orders_worksheet.append_row(data)
+    print("Orders worksheet updated successfully.\n")
 
 
 def main():
@@ -132,7 +143,9 @@ def main():
     data = get_available_stocks_data()
     new_stocks_data = [int(num) for num in data]
     update_available_stocks_worksheet(new_stocks_data)
-    get_orders_data()
+    data = get_orders_data()
+    new_orders_data = [int(num) for num in data]
+    update_orders_worksheet(new_orders_data)
 
 
 print("Welcome to Fruits of Labor Data Automation")   
