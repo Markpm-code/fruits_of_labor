@@ -83,7 +83,15 @@ def update_available_stocks_worksheet(data):
     print("Available stocks worksheet updated successfully.\n")
 
 
-get_username()
-data = get_available_stocks_data()
-new_stocks_data = [int(num) for num in data]
-update_available_stocks_worksheet(new_stocks_data)
+def main():
+    """
+    Run all program functions
+    """
+    get_username()
+    data = get_available_stocks_data()
+    new_stocks_data = [int(num) for num in data]
+    update_available_stocks_worksheet(new_stocks_data)
+
+
+print("Welcome to Fruits of Labor Data Automation")   
+main() 
