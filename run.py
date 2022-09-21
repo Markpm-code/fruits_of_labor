@@ -173,7 +173,18 @@ def validate_cancelled_orders_data(values):
         print(f"Invalid data: {e}, please try again.")      
         return False  
 
-    return True         
+    return True  
+
+
+def update_cancelled_orders_worksheet(data):
+    """
+    Update cancelled orders worksheet, 
+    add new row with list data entered by the user.
+    """
+    print("Updating cancelled orders worksheet...\n")
+    cancelled_orders_worksheet = SHEET.worksheet("cancelled_orders")
+    cancelled_orders_worksheet.append_row(data)
+    print("Cancelled orders worksheet updated successfully.\n")           
 
 
 def main():
@@ -187,7 +198,9 @@ def main():
     data = get_orders_data()
     new_orders_data = [int(num) for num in data]
     update_orders_worksheet(new_orders_data)
-    get_cancelled_orders_data()
+    data = get_cancelled_orders_data()
+    new_cancelled_orders_data = [int(num) for num in data]
+    update_cancelled_orders_worksheet(new_cancelled_orders_data)
 
 
 print("Welcome to Fruits of Labor Data Automation")   
