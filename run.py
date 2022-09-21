@@ -33,7 +33,10 @@ def get_username():
 
 def get_available_stocks_data():
     """
-    Get available stock data figures input from the user
+    Get available stock data figures input from the user.
+    Run a while loop  to collect a valid data from the user,
+    if invalid, the loop will repeatedly request data until it is valid.
+    An example is printed in the terminal to give a clue to the user.
     """
     while True:
         print("Please enter available stocks ready for orders.\n")
@@ -69,6 +72,18 @@ def validate_data(values):
     return True     
 
 
+def update_available_stocks_worksheet(data):
+    """
+    Update available_stocks worksheet, 
+    add new row with list data entered by the user.
+    """
+    print("Updating available_stocks worksheet...\n")
+    available_stocks_worksheet = SHEET.worksheet("available_stocks")
+    available_stocks_worksheet.append_row(data)
+    print("Available stocks worksheet updated successfully.\n")
+
+
 get_username()
 data = get_available_stocks_data()
-print(data)
+new_stocks_data = [int(num) for num in data]
+update_available_stocks_worksheet(new_stocks_data)
