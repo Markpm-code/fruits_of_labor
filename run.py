@@ -13,35 +13,42 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('fruits_of_labor')
 
 
-while True:
-    username = input("Please enter your name to continue:")
+def get_username():
+    """
+    Asking the user to input a username before 
+    running the program.
 
-    if username.isalpha() and (len(username) >= 4 and len(username) <= 10):
-        print("Your username is: " + username)  
-        break
-    else: 
-        print("Please enter correct characters not less than 4\n")
-        print("Please enter characters not more than 10\n")
-        print("It must be alphabet only\n")
-        continue 
+    """
+    while True:
+        username = input("Please enter your name to continue:")
+        if username.isalpha() and (len(username) >= 4 and len(username) <= 10):
+            print("Your username is: " + username)  
+            break
+        else: 
+            print("Please enter correct characters not less than 4\n")
+            print("Please enter characters not more than 10\n")
+            print("It must be alphabet only\n")
+            continue 
 
 
 def get_available_stocks_data():
     """
     Get available stock data figures input from the user
     """
+    print("Please enter available stocks ready for orders.\n")
+    print("Data should be 9 numbers,separated by commas.\n")
+    print("Example: 5,10,15,20,25,30,35,40,45\n")
     while True:
         print("Please enter available stocks ready for orders.\n")
         print("Data should be 9 numbers,separated by commas.\n")
         print("Example: 5,10,15,20,25,30,35,40,45\n")
 
         stocks_data = input("Enter your stocks data here: ")
-
         available_stocks_data = stocks_data.split(",")
 
         if validate_data(available_stocks_data):
             print("Data is valid.")
-            break
+        return available_stocks_data
 
 
 def validate_data(values):
@@ -57,10 +64,13 @@ def validate_data(values):
                 f"9 numbers required, you input {len(values)}"
             )
     except ValueError as e:
+        print(f"Invalid data: {e}, please try again.")     
         print(f"Invalid data: {e}, please try again.") 
         return False  
 
     return True      
-         
 
+
+get_username()
 data = get_available_stocks_data()
+print(data)
