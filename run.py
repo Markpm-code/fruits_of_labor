@@ -20,7 +20,7 @@ def get_username():
 
     """
     while True:
-        username = input("Please enter your name to continue:")
+        username = input("Please enter your name to continue: ")
         if username.isalpha() and (len(username) >= 4 and len(username) <= 10):
             print("Your username is: " + username)  
             break
@@ -43,7 +43,7 @@ def get_available_stocks_data():
         print("Data should be 9 numbers,separated by commas.\n")
         print("Example: 5,10,15,20,25,30,35,40,45\n")
 
-        stocks_data = input("Enter your stocks data here: ")
+        stocks_data = input("Enter your available stocks data here: ")
         available_stocks_data = stocks_data.split(",")
 
         if validate_data(available_stocks_data):
@@ -83,6 +83,47 @@ def update_available_stocks_worksheet(data):
     print("Available stocks worksheet updated successfully.\n")
 
 
+def get_orders_data():
+    """
+    Get orders data figures input from the user.
+    Run a while loop  to collect a valid data from the user,
+    if invalid, the loop will repeatedly request data until it is valid.
+    An example is printed in the terminal to give a clue to the user.
+    """
+    while True:
+        print("Please enter data of new orders.\n")
+        print("Data should be 9 numbers,separated by commas.\n")
+        print("Example: 5,10,15,20,25,30,35,40,45\n")
+
+        orders_data = input("Enter your orders data here: ")
+        new_orders_data = orders_data.split(",")
+
+        if validate_orders_data(new_orders_data):
+            print("Data is valid.")
+            break    
+
+    return new_orders_data
+
+
+def validate_orders_data(values):
+    """
+    Inside the try, converts all string into integers,
+    Raises ValueError if strings cannot be converted into int,
+    or if there are not exactly 9 values.
+    """   
+    try:
+        [int(value) for value in values]
+        if len(values) != 9:
+            raise ValueError(
+                f"9 numbers required, you entered {len(values)}"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.")      
+        return False  
+
+    return True     
+
+
 def main():
     """
     Run all program functions
@@ -91,6 +132,7 @@ def main():
     data = get_available_stocks_data()
     new_stocks_data = [int(num) for num in data]
     update_available_stocks_worksheet(new_stocks_data)
+    get_orders_data()
 
 
 print("Welcome to Fruits of Labor Data Automation")   
