@@ -206,6 +206,18 @@ def calculate_total_no_of_products_sold(orders_row):
 
     return total_of_products_sold_data 
 
+
+def update_total_sold_products_worksheet(data):
+    """
+    Update total products sold,
+    Add new row from the calculated result of the
+    calculate_total_no_of_products_sold function.
+    """
+    print("Updating total of products sold worksheet...\n")
+    total_sold_products_worksheet = SHEET.worksheet("total_of_products_sold")
+    total_sold_products_worksheet.append_row(data)
+    print("Total of products sold worksheet updated successfully.\n")    
+
     
 def main():
     """
@@ -222,7 +234,8 @@ def main():
     new_cancelled_orders_data = [int(num) for num in data]
     update_cancelled_orders_worksheet(new_cancelled_orders_data)
     new_total_sold_data = calculate_total_no_of_products_sold(new_orders_data)
-   
+    update_total_sold_products_worksheet(new_total_sold_data)
+ 
     print(new_total_sold_data)
 
 
