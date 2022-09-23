@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -184,9 +185,28 @@ def update_cancelled_orders_worksheet(data):
     print("Updating cancelled orders worksheet...\n")
     cancelled_orders_worksheet = SHEET.worksheet("cancelled_orders")
     cancelled_orders_worksheet.append_row(data)
-    print("Cancelled orders worksheet updated successfully.\n")           
+    print("Cancelled orders worksheet updated successfully.\n") 
 
 
+def calculate_total_no_of_products_sold(orders_row):
+    """
+    Calculating total number of products sold.
+
+    The total number of products sold is the result of the
+    orders subtracted from the orders cancelled. 
+    """  
+    print("Calculating total number of products sold...\n") 
+    cancelled_orders = SHEET.worksheet("cancelled_orders").get_all_values()
+    cancelled_orders_row = cancelled_orders[-1]
+
+    total_of_products_sold_data = []
+    for orders, cancelled_orders in zip(orders_row, cancelled_orders_row):
+        total_of_products_sold = int(orders) - int(cancelled_orders)
+        total_of_products_sold_data.append(total_of_products_sold)
+
+    return total_of_products_sold_data 
+
+    
 def main():
     """
     Run all program functions
@@ -201,6 +221,9 @@ def main():
     data = get_cancelled_orders_data()
     new_cancelled_orders_data = [int(num) for num in data]
     update_cancelled_orders_worksheet(new_cancelled_orders_data)
+    new_total_sold_data = calculate_total_no_of_products_sold(new_orders_data)
+   
+    print(new_total_sold_data)
 
 
 print("Welcome to Fruits of Labor Data Automation")   
