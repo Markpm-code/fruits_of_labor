@@ -1,6 +1,5 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -23,7 +22,7 @@ def get_username():
 
     """
     while True:
-        username = input("Please enter your name to continue: ")
+        username = input("Please enter your name to continue: \n")
         if username.isalpha() and (len(username) >= 4 and len(username) <= 10):
             print("Your username is: " + username)  
             break
@@ -45,7 +44,7 @@ def get_available_stocks_data():
         print("Data should be 9 numbers,separated by commas.\n")
         print("Example: 5,10,15,20,25,30,35,40,45\n")
 
-        stocks_data = input("Enter your available stocks data here: ")
+        stocks_data = input("Enter your available stocks data here: \n")
         available_stocks_data = stocks_data.split(",")
 
         if validate_data(available_stocks_data):
@@ -97,7 +96,7 @@ def get_orders_data():
         print("Data should be 9 numbers,separated by commas.\n")
         print("Example: 5,10,15,20,25,30,35,40,45\n")
 
-        orders_data = input("Enter your new orders data here: ")
+        orders_data = input("Enter your new orders data here: \n")
         new_orders_data = orders_data.split(",")
 
         if validate_orders_data(new_orders_data):
@@ -149,7 +148,7 @@ def get_cancelled_orders_data():
         print("Data should be 9 numbers,separated by commas.\n")
         print("Example: 5,10,15,20,25,30,35,40,45\n")
 
-        cancelled_data = input("Enter your cancelled orders data here: ")
+        cancelled_data = input("Enter your cancelled orders data here: \n")
         cancelled_orders_data = cancelled_data.split(",")
 
         if validate_data(cancelled_orders_data):
@@ -220,7 +219,7 @@ def update_total_sold_products_worksheet(data):
     print("Total of products sold worksheet updated successfully.\n") 
 
 
-def calculate_surplus_data(available_stocks_row):
+def calculate_surplus_data(avl_stocks):
     """
     Calculating surplus data.
 
@@ -269,9 +268,8 @@ def main():
     new_total_sold_data = calculate_total_no_of_products_sold(new_orders_data)
     update_total_sold_products_worksheet(new_total_sold_data)
     new_surplus_data = calculate_surplus_data(new_total_sold_data)
-    update_surplus_worksheet(new_surplus_data)
-    print(new_surplus_data)
- 
+    update_surplus_worksheet(new_surplus_data) 
+
 
 print("Welcome to Fruits of Labor Data Automation")   
 main() 
