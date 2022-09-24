@@ -193,7 +193,7 @@ def calculate_total_no_of_products_sold(orders_row):
     Calculating total number of products sold.
 
     The total number of products sold is the result of the
-    orders subtracted from the orders cancelled. 
+    orders subtracted from the  cancelled orders. 
     """  
     print("Calculating total number of products sold...\n") 
     cancelled_orders = SHEET.worksheet("cancelled_orders").get_all_values()
@@ -221,7 +221,10 @@ def update_total_sold_products_worksheet(data):
 
 def calculate_surplus_data(available_stocks_row):
     """
-    Calcaulating surplus data..
+    Calculating surplus data.
+
+    The surplus data is the result of available_stocks subtracted to 
+    the total of products sold.
     """
     available_stocks = SHEET.worksheet("available_stocks").get_all_values()
     available_stocks_row = available_stocks[-1]
