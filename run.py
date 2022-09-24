@@ -226,14 +226,14 @@ def calculate_surplus_data(available_stocks_row):
     The surplus data is the result of available_stocks subtracted to 
     the total of products sold.
     """
-    available_stocks = SHEET.worksheet("available_stocks").get_all_values()
-    available_stocks_row = available_stocks[-1]
-    total_of_products_sold = SHEET.worksheet("total_of_products_sold").get_all_values()
-    total_of_products_sold_row = total_of_products_sold[-1]
+    avl_stocks = SHEET.worksheet("available_stocks").get_all_values()
+    avl_stocks_row = avl_stocks[-1]
+    tops = SHEET.worksheet("total_of_products_sold").get_all_values()
+    tops_sold_row = tops[-1]
 
     surplus_data = []
-    for available_stocks, total_of_products_sold in zip(available_stocks_row, total_of_products_sold_row):
-        surplus = int(available_stocks) - int(total_of_products_sold) 
+    for avl_stocks, tops in zip(avl_stocks_row, tops_sold_row):
+        surplus = int(avl_stocks) - int(tops) 
         surplus_data.append(surplus)
     
     return surplus_data
