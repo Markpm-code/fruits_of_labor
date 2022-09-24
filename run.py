@@ -16,8 +16,10 @@ SHEET = GSPREAD_CLIENT.open('fruits_of_labor')
 
 def get_username():
     """
-    Asking the user to input a username before 
-    running the program.
+    Asking the user to input a username before running the program.
+    Run a while loop  to collect a valid data from the user,
+    if invalid, the loop will repeatedly request data until it is valid.
+    A hint is printed in the terminal to give a clue to the user.
 
     """
     while True:
