@@ -233,9 +233,21 @@ def calculate_surplus_data(available_stocks_row):
         surplus = int(available_stocks) - int(total_of_products_sold) 
         surplus_data.append(surplus)
     
-    print(surplus_data)
+    return surplus_data
 
-  
+
+def update_surplus_worksheet(data):
+    """
+    Update surplus worksheet,
+    Add new row from the calculated result of the
+    calculate_surplus_data function.
+    """
+    print("Updating surplus worksheet...\n")
+    surplus_worksheet = SHEET.worksheet("surplus")
+    surplus_worksheet.append_row(data)
+    print("Surplus worksheet updated successfully.\n")
+
+
 def main():
     """
     Run all program functions
@@ -252,8 +264,10 @@ def main():
     update_cancelled_orders_worksheet(new_cancelled_orders_data)
     new_total_sold_data = calculate_total_no_of_products_sold(new_orders_data)
     update_total_sold_products_worksheet(new_total_sold_data)
-    calculate_surplus_data(new_total_sold_data)
-    
+    new_surplus_data = calculate_surplus_data(new_total_sold_data)
+    update_surplus_worksheet(new_surplus_data)
+    print(new_surplus_data)
+ 
 
 print("Welcome to Fruits of Labor Data Automation")   
 main() 
