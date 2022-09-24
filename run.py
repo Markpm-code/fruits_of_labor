@@ -216,9 +216,26 @@ def update_total_sold_products_worksheet(data):
     print("Updating total of products sold worksheet...\n")
     total_sold_products_worksheet = SHEET.worksheet("total_of_products_sold")
     total_sold_products_worksheet.append_row(data)
-    print("Total of products sold worksheet updated successfully.\n")    
+    print("Total of products sold worksheet updated successfully.\n") 
 
+
+def calculate_surplus_data(available_stocks_row):
+    """
+    Calcaulating surplus data..
+    """
+    available_stocks = SHEET.worksheet("available_stocks").get_all_values()
+    available_stocks_row = available_stocks[-1]
+    total_of_products_sold = SHEET.worksheet("total_of_products_sold").get_all_values()
+    total_of_products_sold_row = total_of_products_sold[-1]
+
+    surplus_data = []
+    for available_stocks, total_of_products_sold in zip(available_stocks_row, total_of_products_sold_row):
+        surplus = int(available_stocks) - int(total_of_products_sold) 
+        surplus_data.append(surplus)
     
+    print(surplus_data)
+
+  
 def main():
     """
     Run all program functions
@@ -235,9 +252,8 @@ def main():
     update_cancelled_orders_worksheet(new_cancelled_orders_data)
     new_total_sold_data = calculate_total_no_of_products_sold(new_orders_data)
     update_total_sold_products_worksheet(new_total_sold_data)
- 
-    print(new_total_sold_data)
-
+    calculate_surplus_data(new_total_sold_data)
+    
 
 print("Welcome to Fruits of Labor Data Automation")   
 main() 
