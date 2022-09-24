@@ -29,7 +29,6 @@ def get_username():
             print("Please enter correct characters not less than 4\n")
             print("Please enter characters not more than 10\n")
             print("It must be alphabet only\n")
-            continue 
 
 
 def get_available_stocks_data():
