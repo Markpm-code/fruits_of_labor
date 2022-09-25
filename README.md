@@ -9,3 +9,16 @@ The program will ask the user to enter their username before inputting available
 
 ![This is a sreenshot image](./assets/images/python_prog.png)
 
+## Testing username input validation
+
+* If the user entered incorrect input this following will be printed in the terminal:
+
+  * Please enter correct characters not less than 4
+  * Please enter characters not more than 10
+  * It must be alphabet only
+
+  ![This is a screenshot image](./assets/images/username_validation.png)
+
+
+
+
