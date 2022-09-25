@@ -80,6 +80,11 @@ This project was deployed using Code Institute's mock terminal for Heroku.
     * Link the Heroku app to the repository
     * Click on Deploy
 
+## Contents
+
+  * Contents are coded by the developer and some ideas are taken from the Love Sanwiches walkthrough project from [CODE INSTITUTE.](https://codeinstitute.net/ie/)
+  
+
 ## Credits
 
 * [CODE INSTITUE](https://codeinstitute.net/ie/) for the deployment terminal and Love Sandwiches walkthrough project, as I use this as a guide and some text contents are copied from it.
