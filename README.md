@@ -55,8 +55,30 @@ If the data is valid, this will be printed in the terminal
    ![This is screenshot image](./assets/images/tops.png)
 
   Surplus
-  
+
    ![This is screenshot image](./assets/images/surplus.png)
+
+## Testing
+I have manually tested this project by doing the following:
+
+  * Passed the code through a PEP8 linter, there are trailing whitespace in the code and did a google search and with that information it say that this can be ignored but I will try to learn how to use that function on how to remove it.
+  * Tested in my local terminal and the Code Institute Heroku terminal and the program is working.
+
+## Bugs
+
+  ## Fixed Bugs
+  * I have to abbreviate my variables in surplus_data function as it is too long and removed the continue keyword in the get_username function as hinted in the editor that this cannot be nested in a function.
+
+## Deployment
+
+This project was deployed using Code Institute's mock terminal for Heroku.
+
+  * Steps for deployment:
+    * Fork or clone repository
+    * Create a new Heroku app
+    * Set the buildpacks to [Python](https://www.python.org/) and [NodeJS](https://nodejs.org/en/) in that order
+    * Link the Heroku app to the repository
+    * Click on Deploy
  
  
  
