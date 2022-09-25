@@ -1,31 +1,11 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Fruits of Labor
+Fruits of Labor is Python terminal program, which runs in the Code Institute terminal in Heroku app.
 
-Welcome Markpm-code,
+It is a data automation based on a real life data of products of my parents source of income of our family farm but with a fictional numbers.They post the available products in social media and they get the orders.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+The program will ask the user to enter their username before inputting available stocks, orders, cancelled orders and then calculate the total products sold and the surplus to end the program.
 
-## Reminders
+[Here is the live version of my Fruits of labor data anamation project.](https://fruits-of-labor.herokuapp.com/)
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+![This is a sreenshot image](./assets/images/python_prog.png)
 
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!

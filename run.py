@@ -233,7 +233,7 @@ def calculate_surplus_data(avl_stocks):
 
     surplus_data = []
     for avl_stocks, tops in zip(avl_stocks_row, tops_sold_row):
-        surplus = int(avl_stocks) - int(tops) 
+        surplus = int(avl_stocks) - int(tops)
         surplus_data.append(surplus)
     
     return surplus_data
