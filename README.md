@@ -66,7 +66,7 @@ I have manually tested this project by doing the following:
 
 ## Bugs
 
-  ## Fixed Bugs
+  ### Fixed Bugs
   * I have to abbreviate my variables in surplus_data function as it is too long and removed the continue keyword in the get_username function as hinted in the editor that this cannot be nested in a function.
 
 ## Deployment
@@ -79,6 +79,14 @@ This project was deployed using Code Institute's mock terminal for Heroku.
     * Set the buildpacks to [Python](https://www.python.org/) and [NodeJS](https://nodejs.org/en/) in that order
     * Link the Heroku app to the repository
     * Click on Deploy
+
+## Credits
+
+* [CODE INSTITUE](https://codeinstitute.net/ie/) for the deployment terminal and Love Sandwiches walkthrough project, as I use this as a guide and some text contents are copied from it.
+* [GOOGLE SHEETS](https://www.google.com/sheets/about/) for the worksheet used for this project.
+* [GOOGLE API](https://console.cloud.google.com/) to access the woksheet.
+
+
  
  
  
