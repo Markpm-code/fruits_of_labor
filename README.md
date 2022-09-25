@@ -29,6 +29,11 @@ If the user entered incorrect data the following will be printed in the terminal
 
   ![This is a screenshot image](./assets/images/data_validation.png)
 
+The methods are the same for orders and cancelled orders.
+If the data is valid, this will be printed in the terminal
+
+![This ia a screenshot image](./assets/images/valid_data.png)
+
 
 
 
