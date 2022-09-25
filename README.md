@@ -19,6 +19,18 @@ The program will ask the user to enter their username before inputting available
 
   ![This is a screenshot image](./assets/images/username_validation.png)
 
+## Testing input validation of available_stocks, orders and cancelled orders
+
+If the user entered incorrect data the following will be printed in the terminal:
+
+  * Please enter available stocks ready for orders
+  * Data should be 9 numbers,separated by commas
+  * Example: 5,10,15,20,25,30,35,40,45
+
+  ![This is a screenshot image](./assets/images/data_validation.png)
+
+
+
 
 
 
