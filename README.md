@@ -34,6 +34,36 @@ If the data is valid, this will be printed in the terminal
 
 ![This ia a screenshot image](./assets/images/valid_data.png)
 
+## Checking if the data is sucessfully updated in the worksheet
+
+* Here are the screenshot images of the data that had been sucessfully update in the workcsheet:
+  
+  Available_stocks
+
+  ![This is screenshot image](./assets/images/available_stocks.png)
+
+  Orders
+
+   ![This is screenshot image](./assets/images/orders.png)
+
+  Cancelled orders
+
+   ![This is screenshot image](./assets/images/cancelled_orders.png)
+
+  Total of products sold
+
+   ![This is screenshot image](./assets/images/tops.png)
+
+  Surplus
+  
+   ![This is screenshot image](./assets/images/surplus.png)
+ 
+ 
+ 
+
+
+
+
 
 
 
